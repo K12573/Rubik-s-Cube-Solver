@@ -1,0 +1,49 @@
+{% extends 'base.html'%}
+
+{%  block head %}
+{% endblock %}
+
+{%  block body %}
+
+    <!-- <script src="{{url_for('static', filename = 'js/stars_background.js')}}"></script> -->
+    <div class = 'video-container'>
+        <video src = "{{url_for('static', filename = 'solving rubik.mp4')}}" autoplay muted loop></video>
+
+    </div>
+
+    <div class="perfect-center text-white">
+
+        <div class="blockquote fs-4" style="z-index: 2;" >
+
+            <h1><u><b>Project Description</b></u></h1>
+
+            <br>
+
+            <p> This project utilizes the Kociemba’s Two-Phase Algorithm to find the shortest solution to solve a 3x3 Rubik’s Cube, as well as adding some other features to make solving the Rubik’s Cube more fun! </p>
+
+            <p>More information and explanations about how the algorithm works could be found <a href = 'http://kociemba.org/cube.htm' target = '_blank'> here </a></p>
+
+            <p>The Github repository of the algorithm could be found <a href = 'https://github.com/hkociemba/RubiksCube-TwophaseSolver' target = '_blank'>here</a></p>
+
+            <p>This website was created using Python, Javascript, Flask, HTML and CSS. Hope you enjoy! :)</p>
+            
+        </div>
+        
+        
+    </div>
+
+
+
+
+
+        
+        
+
+    
+    
+
+
+
+    
+{% endblock %}
+

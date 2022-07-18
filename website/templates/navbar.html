@@ -1,0 +1,44 @@
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3" style = 'z-index: 1;'>
+    <a class="navbar-brand" href="{{url_for('index')}}">Rubik's Cube Solver</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto px-3">
+        <a class="nav-item nav-link" href="{{url_for('solver')}}">SOLVER</a>
+        <a class="nav-item nav-link" href="#">TIMER</a>
+        <a class="nav-item nav-link" href="#">LEARN</a>
+        <a class="nav-item nav-link" href="#">PATTERNS</a>
+      </div>
+    </div>
+  </nav> -->
+
+<nav style="z-index: 1;">
+  <div class = "logo">
+    <!-- <a href = "#">RUBIK'S CUBE SOLVER</a> -->
+    <h4>RUBIK'S CUBE SOLVER</h4>
+  </div>
+
+  <ul class = 'nav-links'>
+    <li>
+      <a href="{{url_for('solver')}}">SOLVER</a>
+    </li>
+
+    <li>
+      <a href="#">TIMER</a>
+    </li>
+
+    <li>
+      <a href="#">PATTERNS</a>
+    </li>
+
+  </ul>
+
+  <div class="burger">
+    <div class = "line1"></div>
+    <div class = "line2"></div>
+    <div class = "line3"></div>
+  </div>
+
+</nav>
