@@ -10,14 +10,17 @@ const navSlide = () => {
 
         const cube = document.getElementById("cube");
 
-        if(cube.style.display == 'none'){
-            cube.style.display = 'block';
+        if(cube !== null){
+            if(cube.style.display == 'none'){
+                cube.style.display = 'block';
+            }
+    
+            else{
+                cube.style.display = 'none';
+            }
+    
         }
-
-        else{
-            cube.style.display = 'none';
-        }
-
+        
 
         nav.classList.toggle('nav-active');
     });
