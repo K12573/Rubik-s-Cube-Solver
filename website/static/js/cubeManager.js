@@ -2,9 +2,12 @@
 
 // It manage each face color and run the solver function to generate the algorithm
 
+
+
 const cubies = document.getElementsByClassName('face');
 const colors = document.getElementsByClassName('color-pallette_face');
-let cubieColor = '';
+let cubieColor = 'white';
+
 
 // initialize the 2D array
 
@@ -19,14 +22,15 @@ for(let i = 0; i< cubeFaces.length;i++ ){
 // initializing the 2D array
 for(let i = 0; i < cubeFaces.length; i++){
     for(var j = 0; j < cubeFaces[i].length; j++){
-        cubeFaces[i][j] = "U";
+        cubeFaces[i][j] = "W";
     }
 }
 
 
+
 // get the color from the color pallette
 for(let i = 0; i < colors.length; i++){
-    colors[i].addEventListener('click', colorChanger = () => {
+    colors[i].addEventListener('click',  () => {
         cubieColor=colors[i].style.backgroundColor;
 
     });
@@ -35,8 +39,9 @@ for(let i = 0; i < colors.length; i++){
 // "Paint" the cubies by changing their colors and record these in the array
 for(let i = 0; i < cubies.length; i++){
     cubies[i].addEventListener('click', function handler(){
-        if(cubies[i].id != "U5" && cubies[i].id != "L5" && cubies[i].id != "R5" && cubies[i].id != "B5" && cubies[i].id != "D5" && cubies[i].id != "F5"){
+        if(cubies[i].id != "4"){
             cubies[i].style.backgroundColor = cubieColor;
+
 
         }
     });
@@ -47,10 +52,64 @@ for(let i = 0; i < cubies.length; i++){
 //Solver string format: U ==> R => F ==> D ==> L ==> B
 // Dictionary
 /*
-    U => white
-    R => red
-    F => green
-    D => yellow
-    L => orange
-    B => blue
+    U => white => 0 -> 8
+    R => red => 27 -> 35
+    F => green => 18 -> 26
+    D => yellow => 45 -> 53
+    L => orange => 9 -> 17
+    B => blue => 36 -> 44
  */
+
+function solver() {
+    let tempString1 = '';
+    let tempString2 = '';
+    let inputString = '';
+
+    // Collect the colors of each cubie
+    for (let i = 0; i < cubies.length; i++){
+        tempString1 += cubies[i].style.backgroundColor.charAt(0);
+    }
+
+
+    //Rearrange the tempString in the format such that the Kociemba's algorithm can understand
+
+    // Rearrangement 1: Rearrage the faces order
+    // From: U ==> L ==> F ==> R ==> B ==> D
+    // To: U ==> R => F ==> D ==> L ==> B
+    tempString2 = tempString1.substring(0, 9) + tempString1.substring(27,36) + tempString1.substring(18,27)+tempString1.substring(45,54)+tempString1.substring(9,18) + tempString1.substring(36,45);
+
+    // Convert colors to face characters (Ex: White = U, Orange = L, ...)
+    for (let i in tempString2){
+        if(tempString2[i] === 'w'){
+            inputString+='U';
+        }
+
+        else if(tempString2[i] === 'r'){
+            inputString+='R';
+        }
+
+        else if(tempString2[i]==='g'){
+            inputString+='F';
+        }
+
+        else if(tempString2[i]==='y'){
+            inputString+='D';
+        }
+
+        else if(tempString2[i] === 'b'){
+            inputString+='B';
+        }
+
+        else{
+            inputString+='L';
+        }
+    }
+
+    // console.log(inputString);
+
+    $.ajax({
+        url: "/solvingAlgorithm",
+        data:{cubeString:inputString}
+    });
+
+}
