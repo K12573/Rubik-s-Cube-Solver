@@ -17,10 +17,8 @@ def solver():
 @app.route('/solvingAlgorithm')
 def solvingAlgorithm():
     cubeString = request.args.get('cubeString', type=str)
-    print(sv.solve(cubeString, 19, 2))
-    # print(cubeString)
-    # print('Hello World!')
-    return render_template('solver.html')
+    output = sv.solve(cubeString, 19, 2)
+    return output
 
 
 if __name__ == "__main__":

@@ -65,6 +65,13 @@ function solver() {
     let tempString2 = '';
     let inputString = '';
 
+    // Check if there is a message displayed, if yes, erase it
+    var solution = document.getElementById("solutionText")
+
+    if(solution !== null){
+        solution.parentNode.removeChild(solution)
+    }
+
     // Collect the colors of each cubie
     for (let i = 0; i < cubies.length; i++){
         tempString1 += cubies[i].style.backgroundColor.charAt(0);
@@ -109,7 +116,31 @@ function solver() {
 
     $.ajax({
         url: "/solvingAlgorithm",
-        data:{cubeString:inputString}
-    });
+        data:{cubeString:inputString},
+        success:function (r){
+            var tag = document.createElement("h2")
+            tag.setAttribute("id", "solutionText")
+
+            var text = ""
+            // Classify each case to display the approriate message
+            if(r === "(0f)"){
+                text = document.createTextNode('The cube is solved')
+            }
+
+            else if(r.includes('Error') ){
+
+                text = document.createTextNode('There lies a fault in the pattern of your cube, please fix it and try again')
+
+            }
+
+            else{
+                text = document.createTextNode(r.substring(0, r.length-5))
+            }
+            // var text = document.createTextNode(r)
+            tag.appendChild(text)
+            var element = document.getElementById("container")
+            element.appendChild(tag)
+        }
+    })
 
 }
