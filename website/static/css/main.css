@@ -8,7 +8,7 @@
 body{
     margin:0;
     font-family: sans-serif;
-    /* overflow-y: hidden; */
+    overflow-x: hidden;
 }
 
 .perfect-center{
@@ -34,7 +34,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: -1;
 }
 
@@ -134,7 +134,14 @@ body{
     flex-direction: row;
     margin-top: 5px;
 }
+/* 
+.siteWrapper{
+    overflow: hidden;
+} */
 
+.site{
+    overflow-x: hidden;
+}
 nav{
     display: flex;
     justify-content: space-around;
@@ -220,7 +227,7 @@ nav{
 @media screen and (max-width: 850px){
 
 
-    body{
+    .siteWrapper{
         overflow-x: hidden;
     }
 
