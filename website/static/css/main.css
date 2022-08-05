@@ -38,12 +38,16 @@ body{
     z-index: -1;
 }
 
-.video-container video{
+/* .video-container video{
     filter: brightness(50%);
     height: 100vh;
     width: 100%;
     position: absolute;
     object-fit: cover;
+} */
+
+.video-container img{
+    filter: brightness(50%)
 }
 
 .wrapper{
