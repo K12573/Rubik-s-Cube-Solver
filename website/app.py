@@ -18,6 +18,7 @@ def solver():
 def solvingAlgorithm():
     cubeString = request.args.get('cubeString', type=str)
     output = sv.solve(cubeString, 19, 2)
+
     return output
 
 @app.route('/timer')

@@ -27,18 +27,6 @@ function inputCapture(){
 
     })
 
-    document.addEventListener("touchstart", (e) =>{
-        if(clicked){
-            document.body.style.backgroundColor = 'red';
-            stopTimer();
-            clicked = false;
-        }
-        else{
-            document.body.style.backgroundColor = 'green';
-            runTimer();
-            clicked = true;
-        }
-    })
 }
 
 function runTimer() {

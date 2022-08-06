@@ -134,7 +134,22 @@ function solver() {
             }
 
             else{
-                text = document.createTextNode(r.substring(0, r.length-5))
+                // text = document.createTextNode(r.substring(0, r.length-5))
+                r=r.substring(0, r.length-5)
+
+                let temp = r.split(" ")
+                let output = ""
+
+                temp.forEach(e => {
+                    if(e.includes("3")){
+                        e=e[0]+"'"
+                    }
+                    output+=e+" "
+                });
+
+                text = document.createTextNode(output)
+
+                
             }
             // var text = document.createTextNode(r)
             tag.appendChild(text)
