@@ -1,7 +1,7 @@
 # Rubik-s-Cube-Solver
 This is one of my side projects - A Rubik's Cube Solver!
 
-You can access the website version of the application here: https://cubersolver.herokuapp.com/
+You can access the website version of the application here: ~~https://cubersolver.herokuapp.com/~~ please clone the repo and run it on localhost :)
 
 ***Reminder:***
 
